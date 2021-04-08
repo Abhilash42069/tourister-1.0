@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -16,16 +15,14 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
 
-
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
-
 const MongoDBStore = require("connect-mongo")(session);
 
-
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -50,15 +47,16 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+
 const store = new MongoDBStore({
     url: dbUrl,
     secret,
     touchAfter: 24 * 60 * 60
 });
+
 store.on("error", function (e) {
     console.log("SESSION STORE ERROR", e)
 })
-
 
 const sessionConfig = {
     store,
@@ -73,8 +71,15 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }
+
 app.use(session(sessionConfig));
 app.use(flash());
+
+
+
+
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -84,7 +89,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -112,7 +116,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Hello from Tourister`)
+    console.log(`Serving on port ${port}`)
 })
