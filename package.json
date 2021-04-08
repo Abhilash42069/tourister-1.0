@@ -1,35 +1,39 @@
 {
-  "name": "yelpcamp",
+  "name": "YelpCamp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "dependencies": {
+    "cloudinary": "^1.25.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "joi": "^17.4.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.2",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhilash42069/tourister-1.0.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@mapbox/mapbox-sdk": "^0.11.0",
-    "cloudinary": "^1.23.0",
-    "connect-flash": "^0.1.1",
-    "connect-mongo": "^3.2.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.5",
-    "ejs-mate": "^3.0.0",
-    "express": "^4.17.1",
-    "express-mongo-sanitize": "^2.0.0",
-    "express-session": "^1.17.1",
-    "helmet": "^4.1.1",
-    "joi": "^17.2.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.10.4",
-    "multer": "^1.4.2",
-    "multer-storage-cloudinary": "^4.0.0",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.0.1",
-    "sanitize-html": "^1.27.4"
-  }
+  "bugs": {
+    "url": "https://github.com/Abhilash42069/tourister-1.0/issues"
+  },
+  "homepage": "https://github.com/Abhilash42069/tourister-1.0#readme"
 }
